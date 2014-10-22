@@ -5,7 +5,7 @@ from .. import models
 from ..common.fields import DateTimeISO
 
 blueprint = Blueprint('v1', __name__)
-api = Api(blueprint)
+api = Api(blueprint, catch_all_404s=True)
 
 job_fields = {
     'id': fields.Integer,
