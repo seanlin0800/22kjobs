@@ -2,10 +2,13 @@ from werkzeug import utils
 
 from server.config import DB_BACKEND
 
-_BACKEND_MAPPING = {
-    'sqlalchemy': 'server.db.sqlalchemy.api'
-}
-IMPL = utils.import_string(_BACKEND_MAPPING.get(DB_BACKEND))
+try:
+    IMPL = utils.import_string(
+        'server.db.{}.api'.format(DB_BACKEND)
+    )
+except ImportError:
+    IMPL = utils.import_string('server.db.sqlalchemy.api')
+
 db = IMPL.db
 
 
