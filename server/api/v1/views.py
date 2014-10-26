@@ -2,8 +2,8 @@ from flask import Blueprint, request
 from flask.ext import restful
 from flask.ext.restful import fields, reqparse
 
-from .. import models
-from ..common.fields import DateTimeISO
+from server.api.common import fields as custom_fields
+from server.db import api as db_api
 
 blueprint = Blueprint('v1', __name__)
 api = restful.Api(blueprint, catch_all_404s=True)
@@ -16,7 +16,7 @@ job_fields = {
     'min_wage': fields.Integer,
     'max_wage': fields.Integer,
     'description': fields.String,
-    'posted': DateTimeISO,
+    'posted': custom_fields.DateTimeISO,
     'uri': fields.Url('.job', absolute=True)
 }
 
@@ -31,34 +31,23 @@ class JobListView(restful.Resource):
     parser.add_argument('description', type=unicode, required=True)
 
     def get(self):
-        jobs = models.Job.query.all()
+        jobs = db_api.job_get_all()
         return {'jobs': [restful.marshal(job, job_fields) for job in jobs]}
 
     def post(self):
         args = self.parser.parse_args()
-        job = models.Job(
-            name=args['name'],
-            position=args['position'],
-            addr=args['addr'],
-            min_wage=args['min_wage'],
-            max_wage=args['max_wage'],
-            description=args['description'],
-        )
-        models.db.session.add(job)
-        models.db.session.commit()
-        return {'job': {'id': job.id}}
+        job = db_api.job_create(args)
+        return {'job': {'id': job.id}}, 201
 
 
 class JobView(restful.Resource):
 
     def get(self, id):
-        job = models.Job.query.get_or_404(id)
+        job = db_api.job_get(id)
         return {'job': restful.marshal(job, job_fields)}
 
     def delete(self, id):
-        job = models.Job.query.get_or_404(id)
-        models.db.session.delete(job)
-        models.db.session.commit()
+        db_api.job_delete(id)
         return {'result': True}
 
 

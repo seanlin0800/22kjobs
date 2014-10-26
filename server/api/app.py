@@ -1,7 +1,7 @@
 from flask import Flask
 
 from .v1 import blueprint
-from .models import db
+from server.db.api import db
 
 
 def req_end(response):
@@ -13,9 +13,9 @@ def req_end(response):
     return response
 
 
-def create_app():
-    app = Flask(__name__, static_url_path='')
-    app.config.from_object('config')
+def create_app(config_obj):
+    app = Flask(__name__)
+    app.config.from_object(config_obj)
     app.after_request(req_end)
     db.init_app(app)
     app.register_blueprint(blueprint, url_prefix='/api/v1')
