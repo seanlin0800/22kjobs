@@ -1,0 +1,27 @@
+<div class="bs-callout bs-callout-info">
+  <a href="http://mhperng.blogspot.tw/2013/01/22k.html">22K是什麼問題？</a>
+</div>
+<div class="row">
+  <div class="col-lg-8 col-lg-offset-2">
+    <div class="input-group">
+      <span class="input-group-addon">
+        <i class="glyphicon glyphicon-search"></i>
+      </span>
+      <input type="text" class="form-control" placeholder="搜尋工作關鍵字..." ng-model="query">
+    </div>
+  </div>
+  <div class="col-lg-2">
+    <a class="btn btn-primary" href="#/new">張貼一份 22K 工作</a>
+  </div>
+</div>
+<br><br>
+<table class="table">
+  <tr ng-repeat="job in jobs | filter: search | orderBy:'posted':true">
+    <td>{{ job.name }} - <a href="#/jobs/{{ job.id }}">{{ job.position }}</a></td>
+    <td><span job-highlight="job.max_wage"></span></td>
+    <td>{{ job.posted | date:'d MMM' }}</td>
+    <td class="center">
+      <button class="btn btn-sm btn-danger" ng-click="deleteJob(job)">刪除</button>
+    </td>
+  </tr>
+</table>

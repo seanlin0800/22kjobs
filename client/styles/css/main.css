@@ -1,0 +1,86 @@
+body {
+    padding-top: 70px;
+    padding-bottom: 70px; 
+}
+
+.form-group.required .control-label:before {
+    content: "* ";
+}
+
+.md-editor .md-header, .md-editor .md-footer {
+    display: block;
+    padding: 6px 4px;
+    background: none repeat scroll 0% 0% #F5F5F5;
+}
+
+.md-editor textarea {
+    font-family: Menlo,Monaco,Consolas,"Courier New",monospace;
+    font-size: 14px;
+    outline: 0px none;
+    margin: 0px;
+    display: block;
+    padding: 0px;
+    width: 100%;
+    border-right: 0px none;
+    border-left: 0px none;
+    -moz-border-top-colors: none;
+    -moz-border-right-colors: none;
+    -moz-border-bottom-colors: none;
+    -moz-border-left-colors: none;
+    border-image: none;
+    border-width: 1px 0px;
+    border-style: dashed none;
+    border-color: #DDD -moz-use-text-color;
+    border-radius: 0px;
+    box-shadow: none;
+    background: none repeat scroll 0% 0% #EEE;
+}
+
+.md-editor textarea:focus{
+    box-shadow:none;
+    background:white
+}
+
+.md-editor .md-preview{
+    background:white;
+    border-top:1px dashed #dddddd;
+    border-bottom:1px dashed #dddddd;
+    min-height:10px
+}
+
+.md-preview{
+    padding-top:15px;
+    padding-left:15px;
+    background:#FBF9D0 !important
+}
+
+/* Base styles (regardless of theme) */
+.bs-callout {
+    margin: 20px 0;
+    padding: 15px 30px 15px 15px;
+    border-left: 5px solid #eee;
+}
+.bs-callout h4 {
+    margin-top: 0;
+}
+.bs-callout p:last-child {
+    margin-bottom: 0;
+}
+.bs-callout code,
+.bs-callout .highlight {
+    background-color: #fff;
+}
+ 
+/* Themes for different contexts */
+.bs-callout-danger {
+    background-color: #fcf2f2;
+    border-color: #dFb5b4;
+}
+.bs-callout-warning {
+    background-color: #fefbed;
+    border-color: #f1e7bc;
+}
+.bs-callout-info {
+    background-color: #f0f7fd;
+    border-color: #d0e3f0;
+}

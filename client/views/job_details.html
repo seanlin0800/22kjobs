@@ -1,0 +1,19 @@
+<h2>{{job.position}} @ {{job.name}}</h2>
+<div>
+  <span style="color:grey; font-weight:bold;">
+    <i class="glyphicon glyphicon-calendar"> </i> 
+    刊登日期 {{ job.posted | date }}
+  </span>
+  &nbsp;&nbsp;&nbsp;&nbsp;
+  <span style="color:grey; font-weight:bold;">
+    <i class="glyphicon glyphicon-map-marker"></i>
+    上班地點 {{ job.addr || '不要問' }}
+  </span>
+  <span style="color:grey; font-weight:bold;" class="pull-right">
+    <span job-highlight="job.min_wage"></span> ~
+    <span job-highlight="job.max_wage"></span>
+  </span>
+</div>
+<hr></hr>
+<div ng-bind-html="job.description | markdown">
+</div>

@@ -1,0 +1,56 @@
+<form novalidate name="jobForm" class="form-horizontal" ng-submit="submit()">
+  <fieldset>
+    <div class="form-group required">
+      <label class="col-lg-2 control-label">公司 / 組織名稱</label>
+      <div class="col-lg-8">
+        <input type="text" class="form-control" ng-model="job.name" required>
+      </div>
+    </div>
+    <div class="form-group">
+      <label class="col-lg-2 control-label">工作地點</label>
+      <div class="col-lg-8">
+        <input type="text" class="form-control" ng-model="job.addr">
+      </div>
+    </div>
+    <div class="form-group required">
+      <label class="col-lg-2 control-label">職缺</label>
+      <div class="col-lg-8">
+        <input type="text" class="form-control" ng-model="job.position" required>
+      </div>
+    </div>
+    <div class="form-group">
+      <label class="col-lg-2 control-label">薪水</label>
+      <div class="col-lg-8">
+        <div class="input-prepend input-append">
+          <input class="string optional" placeholder="下限 (Lower bound)" type="number" ng-model="job.min_wage"> ~
+          <input class="string optional" placeholder="上限 (Higher bound)" type="number" ng-model="job.max_wage">
+        </div>
+      </div>
+    </div>
+    <div class="form-group required">
+      <label class="col-lg-2 control-label">工作敘述</label>
+      <div class="col-lg-8">
+        <div class="md-editor">
+          <div class="md-header">
+            <button type='button' class="btn btn-primary btn-sm" ng-click="preview.show()">
+              <span class="glyphicon glyphicon-search"></span>
+              Preview
+            </button>
+          </div>
+          <textarea class="form-control" rows="5" ng-model="job.description" ng-show="!preview.active">
+          </textarea>
+          <div class="md-preview" ng-bind-html="preview.text | markdown" ng-show="preview.active"></div>
+        </div>
+        <p class="help-block">使用 Markdown 語法</p>
+      </div>
+    </div>
+    <div class="form-group">
+      <div class="col-lg-10 col-lg-offset-3">
+        <button type='button' class="btn btn-default" ng-click='goBack()'>
+          Cancel
+        </button>
+        <button type="submit" class="btn btn-primary">Submit</button>
+      </div>
+    </div>
+  </fieldset>
+</form>
