@@ -6,6 +6,12 @@
 只有 client
 http://seanlin0800.github.io/22kjobs/client/
 
+### System requirements
+- Python 2.7
+- Flask
+- Flask-RESTful
+- Flask-SQLAlchemy
+
 ### Server
 先執行 db_sync.py
 ```
