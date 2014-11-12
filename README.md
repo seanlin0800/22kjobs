@@ -2,6 +2,10 @@
 =======
 [用 Flask 打造 RESTful API](http://seanlin.logdown.com/posts/239771-use-flask-to-create-restful-api) 範例程式碼
 
+### Demo
+只有 client
+http://seanlin0800.github.io/22kjobs/client/
+
 ### Server
 先執行 db_sync.py
 ```
