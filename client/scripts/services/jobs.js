@@ -4,11 +4,18 @@
     {
       id: 0,
       name: 'Sweatshop Corp.',
-      position: 'Principal Engineer',
+      position: 'Principal Software Engineer',
       addr: '台北',
       min_wage: 20000,
       max_wage: 23000,
-      description: '**Must** master the following',
+      description: 'Sweatshop is looking for a ninja programmer.\n' +
+                   '- **Must** master the following skills\n' +
+                   ' - C, C++, Go, Java, JavaScript, Python, Ruby\n' +
+                   ' - Android, iOS, Web Frameworks\n' +
+                   ' - NoSQL databases\n' +
+                   '- Excellent English skills\n' +
+                   '- Solid knowledge of machine learning\n' +
+                   '- 10+ years of work experience',
       posted: '2014-10-24T04:44:44Z'
     }
   ];
@@ -16,7 +23,7 @@
   function findJob(jobID) {
     for (var i = 0, len = job_list.length; i < len; i++) {
       if (job_list[i].id == jobID) {
-        return i; 
+        return i;
       }
     }
     return -1;
@@ -39,8 +46,8 @@
   }
 
   angular.module('jobsApp')
-    .factory('jobService', ['$resource', 'baseUrl',
-      function ($resource, baseUrl) {
+    .factory('jobService', [
+      function () {
         var storageID = 'jobs_demo',
             paramDefault = 'jobId';
 
