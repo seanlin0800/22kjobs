@@ -37,7 +37,7 @@
               Preview
             </button>
           </div>
-          <textarea class="form-control" rows="5" ng-model="job.description" ng-show="!preview.active">
+          <textarea class="form-control" rows="5" ng-model="job.description" required ng-show="!preview.active">
           </textarea>
           <div class="md-preview" ng-bind-html="preview.text | markdown" ng-show="preview.active"></div>
         </div>
@@ -49,7 +49,7 @@
         <button type='button' class="btn btn-default" ng-click='goBack()'>
           Cancel
         </button>
-        <button type="submit" class="btn btn-primary">Submit</button>
+        <button type="submit" class="btn btn-primary" ng-disabled="!jobForm.$valid">Submit</button>
       </div>
     </div>
   </fieldset>
