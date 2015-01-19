@@ -4,6 +4,7 @@
 
 ### Demo
 只有 client，主要 framework 為 AngularJS
+
 http://seanlin0800.github.io/22kjobs/client/
 
 ### System requirements
