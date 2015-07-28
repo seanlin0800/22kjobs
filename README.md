@@ -1,6 +1,6 @@
 22kjobs
 =======
-[用 Flask 打造 RESTful API](http://seanlin.logdown.com/posts/239771-use-flask-to-create-restful-api) 範例程式碼
+[用 Flask 打造 RESTful API](http://seanlin.logdown.com/posts/239771-use-flask-to-create-restful-api) 範例程式碼 (Flask + AngularJS)
 
 ### Demo
 只有 client，主要 framework 為 AngularJS
